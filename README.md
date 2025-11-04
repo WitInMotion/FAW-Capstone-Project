@@ -17,4 +17,18 @@ This project detects Fall Armyworm larvae in crop images using YOLOv8.
 ### 1. Install dependencies
 ```bash
 pip install -r requirements.txt
+streamlit run app/app.py
+The ONNX model faw_model.onnx is ready for inference or deployment in other frameworks.
+
+---
+
+## **3️⃣ requirements.txt Template**
+
+```txt
+torch
+ultralytics
+streamlit
+Pillow
+numpy
+opencv-python
 
