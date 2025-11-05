@@ -3,7 +3,7 @@ YOLOv8-based detection of Fall Armyworm larvae in crop images with ONNX export f
 # 🌽 Fall Armyworm Detection Capstone Project
 
 ## Link to Live Preview
-[FAW Detection System](((https://faw-capstone-project-mdnekdqdcojnpndw8drl34.streamlit.app/))
+[FAW Detection System](https://faw-capstone-project-mdnekdqdcojnpndw8drl34.streamlit.app/)
 ## Project Overview
 This project detects Fall Armyworm larvae in crop images using YOLOv8.
 
