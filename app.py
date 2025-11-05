@@ -3,7 +3,7 @@ from ultralytics import YOLO
 from PIL import Image
 
 # Load your trained model
-model = YOLO("/content/drive/MyDrive/AI Capstone Project/faw_model_trained.pt")
+model = YOLO("faw_model_trained.pt")
 
 st.title("🌽 Fall Armyworm Early Detection System")
 st.write("Upload a maize leaf image to detect Fall Armyworm or related conditions.")
