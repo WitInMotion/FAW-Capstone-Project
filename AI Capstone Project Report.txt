@@ -1,0 +1,150 @@
+﻿AI Capstone Project Report: Fall Armyworm (FAW) Early Detection System.
+1. Project Overview
+The Fall Armyworm (FAW) Early Detection System is an AI-powered solution designed to automatically detect and classify signs of Spodoptera frugiperda (fall armyworm) infestation on maize leaves.
+The project applies computer vision and deep learning to enable early pest identification, supporting farmers and researchers in effective pest management.
+The system uses YOLOv8 (You Only Look Once version 8) for object detection, trained on a combination of image datasets containing various FAW conditions, including larvae, frass, and leaf damage, as well as healthy maize.
+
+
+2. Objectives
+* To build and train an AI model capable of detecting Fall Armyworm on maize plants.
+
+* To compare performance between two datasets and improve model accuracy through retraining.
+
+* To deploy the model on a web interface using Streamlit, allowing users to upload maize images for instant pest detection.
+3. Tools and Frameworks
+Category
+	Tools Used
+	Development Environment
+	Google Colab
+	Programming Language
+	Python
+	Machine Learning Framework
+	YOLOv8 (Ultralytics)
+	Deployment Platform
+	Streamlit Cloud
+	Dataset Source
+	Roboflow
+	4. Methodology
+Step 1 — Data Collection
+Two datasets were used:
+   1. Dataset A (Untrained Roboflow Export): A raw export from Roboflow, consisting of labeled maize images for detection of FAW and healthy leaves.
+
+   2. Dataset B (Pre-trained Roboflow Version): A dataset already trained on Roboflow’s platform, downloaded and further fine-tuned in Colab.
+
+Both datasets were in YOLOv8 format and included images under the following classes:
+      * fall-armyworm-larva
+
+      * fall-armyworm-larval-damage
+
+      * fall-armyworm-frass
+
+      * fall-armyworm-egg
+
+      * healthy-maize
+
+      * maize-streak-disease
+
+
+
+Step 2 — Model Training
+Model training was conducted on Google Colab using the Ultralytics YOLOv8 framework.
+The Roboflow API was used to import datasets directly into the Colab environment.
+Both models were trained for 30 epochs on the CPU runtime (later switched to GPU for faster training).
+Two experiments were performed:
+         * Model 1 (Untrained dataset): Trained from scratch using Dataset A.
+
+         * Model 2 (Fine-tuned dataset): Further trained using Dataset B to improve accuracy.
+
+
+
+Step 3 — Model Evaluation
+The models were evaluated using YOLOv8’s built-in validation.
+Key metrics include Precision, Recall, F1 Score, and Mean Average Precision (mAP).✅ Interpretation:
+ The fine-tuned model achieved a higher F1 score (0.76) and mAP (0.77), confirming improved accuracy and robustness after retraining with cleaner annotations and extended epochs.
+
+
+
+
+Metric
+	Model 1 (Untrained)
+	Model 2 (Fine-tuned)
+	Precision
+	0.556
+	0.742
+	Recall
+	0.583
+	0.769
+	F1 Score
+	0.57
+	0.76
+	mAP@50
+	0.566
+	0.767
+	mAP@50–95
+	0.537
+	0.764
+	
+
+
+
+Step 4 — Model Export and Deployment
+After successful training, the best model (best.pt) was exported and integrated into a Streamlit web app (app.py).
+The app allows users to:
+            * Upload maize leaf images
+
+            * Run YOLOv8 inference in real-time
+
+            * Display bounding boxes and class labels for detected armyworm symptoms
+
+The application was deployed using Streamlit Cloud with necessary dependencies (requirements.txt and packages.txt).
+
+
+5. Deployment Summary
+               * App Framework: Streamlit
+
+               * Hosting: Streamlit Cloud
+
+               * Access: Deployed via Streamlit public URL (auto-generated after deployment)
+
+               * Files included:
+
+                  * app.py (main app script)
+
+                  * best.pt (trained model weights)
+
+                  * requirements.txt (dependencies)
+
+                  * packages.txt (system dependencies for OpenCV support)
+
+
+
+6. Results
+The final model (fine-tuned dataset) successfully detects multiple FAW categories, including larvae and leaf damage, with high accuracy.
+Real-world images tested through the deployed app demonstrated accurate bounding box labeling and classification, validating model performance.
+Performance Summary:
+                     * Faster detection with improved confidence scores.
+
+                     * Good generalization across unseen maize images.
+
+                     * Lightweight and deployable for real-time use in field diagnostics.
+
+
+
+ 7. Conclusion
+This project demonstrates how artificial intelligence and computer vision can support sustainable agriculture by enabling early pest detection.
+By leveraging YOLOv8, Roboflow, and Streamlit, the system provides an accessible, scalable solution for early FAW monitoring.
+Future Improvements:
+                        * Add support for video detection (real-time monitoring).
+
+                        * Expand the dataset to include more crop varieties.
+
+                        * Integrate mobile-friendly deployment.
+
+
+
+8. References
+                           * Roboflow Dataset: https://roboflow.com
+
+                           * Ultralytics YOLOv8 Documentation: https://docs.ultralytics.com
+
+                           * Streamlit: https://streamlit.io
